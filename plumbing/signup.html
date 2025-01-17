@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="56x56" href="assets/images/fav-icon/icon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
+    <!-- Other CSS files (carousel, animate, etc.) -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/animate.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/animated-text.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/all.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/flaticon.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/theme-default.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/meanmenu.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css" type="text/css" media="all">
+    <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" type="text/css" media="all">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">  
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all">
+    <!-- Modernizr JS -->
+    <script src="assets/js/modernizr-3.7.1.min.js"></script>
+</head>
+
+<body class="signup-page">
+
+    <div class="signup-container">
+        <div class="signup-left">
+            <h1>Sign Up</h1>
+            <p>Already have an account? <a href="#">Log In</a></p>
+            <form action="signup.php" method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone_number" placeholder="Phone-number" required maxlength="10" pattern="^\d{10}$" title="Phone number should be exactly 10 digits">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Choose a password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address with '@'">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="email_verification_code" placeholder="Email verification code" required class="verification-input">
+                    <p class="get-code-text">Get Code</p>
+                </div>
+                <div class="form-group">
+                    <select name="user_type" id="user_type" required>
+                        <option value="" disabled selected>Select the type</option> <!-- Placeholder -->
+                        <option value="guest">Guest</option>
+                        <option value="customer">Customer</option>
+                        <option value="staff">Staff</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    
+                </div>
+
+                <button type="submit" class="signup-button">Sign Up</button>
+            </form>
+            <p class="terms">
+                By signing up, you agree to our <a href="#">Terms of Use</a> and acknowledge you’ve read our 
+                <a href="#">Privacy Policy</a>.
+            </p>
+        </div>
+    </div>    
+
+</body>
+</html>
