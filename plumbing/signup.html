@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="56x56" href="assets/images/fav-icon/icon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" media="all">
-    <!-- Other CSS files (carousel, animate, etc.) -->
+    <!-- Other CSS files -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="assets/css/animate.css" type="text/css" media="all">
     <link rel="stylesheet" href="assets/css/animated-text.css" type="text/css" media="all">
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="all">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css" type="text/css" media="all">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">  
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="assets/css/responsive.css" type="text/css" media="all">
     <!-- Modernizr JS -->
@@ -29,17 +29,16 @@
 </head>
 
 <body class="signup-page">
-
     <div class="signup-container">
         <div class="signup-left">
             <h1>Sign Up</h1>
             <p>Already have an account? <a href="#">Log In</a></p>
-            <form action="signup.php" method="POST">
+            <form action="assets/database/database1/sign_up.php" method="POST">
                 <div class="form-group">
                     <input type="text" name="username" placeholder="Username" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="phone_number" placeholder="Phone-number" required maxlength="10" pattern="^\d{10}$" title="Phone number should be exactly 10 digits">
+                    <input type="tel" name="phone_number" placeholder="Phone number" required maxlength="10" pattern="^\d{10}$" title="Phone number should be exactly 10 digits">
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" placeholder="Choose a password" required>
@@ -52,19 +51,17 @@
                 </div>
                 <div class="form-group">
                     <input type="text" name="email_verification_code" placeholder="Email verification code" required class="verification-input">
-                    <p class="get-code-text">Get Code</p>
+                    <p class="get-code-text" style="cursor: pointer; color: blue;">Get Code</p>
                 </div>
                 <div class="form-group">
                     <select name="user_type" id="user_type" required>
-                        <option value="" disabled selected>Select the type</option> <!-- Placeholder -->
+                        <option value="" disabled selected>Select the type</option>
                         <option value="guest">Guest</option>
                         <option value="customer">Customer</option>
                         <option value="staff">Staff</option>
                         <option value="admin">Admin</option>
                     </select>
-                    
                 </div>
-
                 <button type="submit" class="signup-button">Sign Up</button>
             </form>
             <p class="terms">
@@ -72,7 +69,7 @@
                 <a href="#">Privacy Policy</a>.
             </p>
         </div>
-    </div>    
+    </div>
 
 </body>
 </html>

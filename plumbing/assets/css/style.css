@@ -426,7 +426,7 @@ ul.sub-menu li:hover a span{
 }
 
 .slider.hero-section {
-    background: url(../images/slider/hero-bg2.jpg);
+    background: url(../images/slider/hero-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -562,6 +562,7 @@ h1.sections {
     margin: 0 0px 0 -55px;
     position: relative;
     z-index: 1;
+    margin-left: 0.1cm;
 }
 
 .about-item-list {
