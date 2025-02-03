@@ -7,20 +7,18 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $name=$_POST['name'];
+    $name = $_POST['name'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirm_password'];
     $created_at = date('Y-m-d H:i:s');
 
-
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'Invalid email format';
-      
     }
-    if(empty($name)){
-        $errors['name']='Name is required';
+    if (empty($name)) {
+        $errors['name'] = 'Name is required';
     }
-    if (strlen($password) < 8 ) {
+    if (strlen($password) < 8) {
         $errors['password'] = 'Password must be at least 8 characters long.';
     }
 
@@ -41,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
     }
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $stmt = $pdo->prepare("INSERT INTO users (email, password,name,created_at) VALUES (:email, :password, :name, :created_at)");
-    $stmt->execute(['email' => $email, 'password' => $hashedPassword, 'name'=>$name,'created_at'=>$created_at]);
+    $stmt = $pdo->prepare("INSERT INTO users (email, password, name, created_at) VALUES (:email, :password, :name, :created_at)");
+    $stmt->execute(['email' => $email, 'password' => $hashedPassword, 'name' => $name, 'created_at' => $created_at]);
 
     header('Location: index.php');
     exit();
@@ -72,14 +70,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
+        // Save user details in session
         $_SESSION['user'] = [
             'id' => $user['id'],
             'email' => $user['email'],
-            'name'=>$user['name'],
-            'created_at' => $user['created_at']
+            'name' => $user['name'],
+            'created_at' => $user['created_at'],
+            'role' => $user['role']  // Save the role
         ];
 
-        header('Location:../customer_page/customer.html');  //after sign in redirect 
+        // Redirect based on user role
+        if ($user['role'] === 'admin') {
+            header('Location: ../adminDashboard.php');
+        } elseif ($user['role'] === 'staff') {
+            header('Location: ../staffDashboard.php');
+        } else {
+            header('Location: ../index.html');
+        }
         exit();
     } else {
         $errors['login'] = 'Invalid email or password';
@@ -88,3 +95,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signin'])) {
         exit();
     }
 }
+?>
